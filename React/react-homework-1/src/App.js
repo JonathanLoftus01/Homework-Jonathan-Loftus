@@ -11,12 +11,12 @@ function App() {
   function handleSubmit(e){
     e.preventDefault()
 
-    if (inputItem !== "" && inputItem.length <255 && todo.filter(task => task.title === inputItem).length < 1){
+    if (inputItem !== "" && inputItem.length <255 && todo.filter(task => task.title === inputItem).length < 1 && todo.length < 13){
       setTodo((currentTodo) => {
         return [...currentTodo, { id:crypto.randomUUID(), title: inputItem, completed: false, taskTail: "pl-2 pb-2 hover:line-through"},]})
         setInputItem("")
     } else {
-      alert("There is something wrong with this task: Too short, Too long or already existing" + {inputItem})
+      alert("There is something wrong with this task: Too short, Too long, already existing or you are out of paper")
     }
   }
   console.log(todo)
